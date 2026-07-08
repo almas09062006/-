@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Legal Document Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>AI Legal Document Analyzer</h1>
+      <p>Веб-сервис для анализа нормативных и служебных документов</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1. Загрузка документа</h2>
+      <p class="hint">Поддерживается загрузка TXT-файлов. PDF/DOCX можно добавить позже через backend.</p>
+      <input type="file" id="fileInput" accept=".txt,.pdf,.doc,.docx" />
+      <div class="file-info" id="fileInfo">Файл не выбран</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Текст документа</h2>
+      <textarea id="documentText" placeholder="Загрузите файл или вставьте текст документа вручную..."></textarea>
+      <div class="actions">
+        <button onclick="clearText()">Очистить</button>
+        <button onclick="saveOriginalText()">Сохранить исходный текст</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Анализ документа</h2>
+      <div class="actions">
+        <button onclick="generateSummary()">Краткое резюме</button>
+        <button onclick="findDeadlines()">Найти сроки</button>
+        <button onclick="findRisks()">Найти риски</button>
+        <button onclick="generateManagerReport()">Справка для руководителя</button>
+      </div>
+
+      <div class="question-box">
+        <input type="text" id="questionInput" placeholder="Задайте вопрос по документу..." />
+        <button onclick="answerQuestion()">Найти ответ</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Результат анализа</h2>
+      <textarea id="resultText" placeholder="Здесь появится результат анализа..."></textarea>
+      <div class="actions">
+        <button onclick="downloadResult()">Скачать результат .txt</button>
+        <button onclick="saveResult()">Сохранить в истории</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>5. История анализов</h2>
+      <ul id="historyList"></ul>
+      <button onclick="clearHistory()" class="danger">Очистить историю</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Учебный проект для GitHub · AI Legal Document Analyzer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
